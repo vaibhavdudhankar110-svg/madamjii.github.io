@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Abheshika Madam Jii</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI;
+}
+
+body{
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+overflow:hidden;
+color:white;
+}
+
+/* RGB NAME */
+
+.name{
+font-size:32px;
+font-weight:bold;
+animation:rgb 4s linear infinite;
+}
+
+@keyframes rgb{
+0%{color:#ff3b3b}
+25%{color:#ff9a00}
+50%{color:#00e5ff}
+75%{color:#b84dff}
+100%{color:#ff3b3b}
+}
+
+/* layers */
+
+.hearts,.flowers,.blast{
+position:absolute;
+width:100%;
+height:100%;
+pointer-events:none;
+}
+
+/* floating hearts */
+
+.heart{
+position:absolute;
+font-size:18px;
+animation:heartFloat linear infinite;
+}
+
+@keyframes heartFloat{
+0%{transform:translateY(110vh);opacity:0}
+50%{opacity:1}
+100%{transform:translateY(-10vh);opacity:0}
+}
+
+/* flowers */
+
+.flower{
+position:absolute;
+animation:flowerFall linear infinite;
+}
+
+@keyframes flowerFall{
+
+0%{
+transform:translateY(-20vh) translateX(0);
+}
+
+50%{
+transform:translateY(50vh) translateX(25px);
+}
+
+100%{
+transform:translateY(120vh) translateX(-25px);
+}
+
+}
+
+/* card */
+
+.container{
+width:90%;
+max-width:420px;
+padding:35px;
+text-align:center;
+border-radius:20px;
+box-shadow:0 10px 40px rgba(0,0,0,0.35);
+z-index:2;
+background:rgba(255,255,255,0.18);
+backdrop-filter:blur(12px);
+}
+
+/* last page no glass */
+
+.page.last{
+background:none;
+box-shadow:none;
+}
+
+/* sticker */
+
+.sticker{
+font-size:40px;
+margin-bottom:10px;
+animation:bounce 2s infinite;
+}
+
+@keyframes bounce{
+0%{transform:translateY(0)}
+50%{transform:translateY(-8px)}
+100%{transform:translateY(0)}
+}
+
+button{
+margin-top:20px;
+padding:10px 25px;
+border:none;
+border-radius:20px;
+background:white;
+color:#333;
+cursor:pointer;
+}
+
+/* pages */
+
+.page{
+display:none;
+}
+
+.page.active{
+display:block;
+}
+
+/* popup */
+
+.popup{
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%) scale(0);
+background:linear-gradient(135deg,#ff7eb3,#ff758c);
+padding:40px;
+border-radius:25px;
+text-align:center;
+color:white;
+box-shadow:0 0 40px rgba(255,100,150,0.8);
+transition:0.5s;
+z-index:20;
+}
+
+.popup.show{
+transform:translate(-50%,-50%) scale(1);
+}
+
+/* SLOW HEART BLAST */
+
+.blastHeart{
+position:absolute;
+font-size:22px;
+animation:blast 3.8s forwards;
+}
+
+@keyframes blast{
+
+0%{
+transform:scale(0);
+opacity:1;
+}
+
+40%{
+opacity:1;
+}
+
+100%{
+transform:translate(var(--x),var(--y)) scale(2.2);
+opacity:0;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="hearts" id="hearts"></div>
+<div class="flowers" id="flowers"></div>
+<div class="blast" id="blast"></div>
+
+<div class="popup" id="popup">
+
+<h2>✨ Surprise ✨</h2>
+
+<p>Abheshika Madam Jii..<br>
+Stay happy and keep smiling always 💖</p>
+
+</div>
+
+<div class="container">
+
+<div class="page active">
+
+<div class="sticker">😊</div>
+<div class="name">Abheshika Madam Jii..</div>
+
+<p>This webpage is just to make you smile.</p>
+
+<button onclick="nextPage()">Next</button>
+
+</div>
+
+<div class="page"><div class="sticker">💖</div>
+<p>You have a really kind personality.</p>
+<button onclick="nextPage()">Next</button></div>
+
+<div class="page"><div class="sticker">🌸</div>
+<p>Talking with you feels peaceful.</p>
+<button onclick="nextPage()">Next</button></div>
+
+<div class="page"><div class="sticker">🥰</div>
+<p>Your smile brightens people's day.</p>
+<button onclick="nextPage()">Next</button></div>
+
+<div class="page"><div class="sticker">✨</div>
+<p>Even small conversations feel special.</p>
+<button onclick="nextPage()">Next</button></div>
+
+<div class="page"><div class="sticker">💗</div>
+<p>You bring positive vibes everywhere.</p>
+<button onclick="nextPage()">Next</button></div>
+
+<div class="page"><div class="sticker">🌸</div>
+<p>May happiness stay with you always.</p>
+<button onclick="nextPage()">Next</button></div>
+
+<div class="page"><div class="sticker">😊</div>
+<p>Never stop smiling.</p>
+<button onclick="nextPage()">Next</button></div>
+
+<div class="page"><div class="sticker">📚</div>
+<p>Best of luck for your exams.</p>
+<button onclick="nextPage()">Next</button></div>
+
+<div class="page"><div class="sticker">✨</div>
+<p>Stay confident, you will do great.</p>
+<button onclick="nextPage()">Next</button></div>
+
+<div class="page"><div class="sticker">💫</div>
+<p>You are capable of amazing things.</p>
+<button onclick="nextPage()">Next</button></div>
+
+<div class="page last">
+
+<div class="sticker">💖</div>
+
+<p>Stay happy and keep shining ✨</p>
+
+<button onclick="showPopup()">Final Surprise</button>
+
+</div>
+
+</div>
+
+<script>
+
+/* floating hearts */
+
+for(let i=0;i<30;i++){
+
+let h=document.createElement("div");
+
+h.className="heart";
+h.innerHTML="❤️";
+
+h.style.left=Math.random()*100+"%";
+h.style.top=Math.random()*100+"%";
+h.style.animationDuration=(5+Math.random()*4)+"s";
+h.style.animationDelay=(-Math.random()*10)+"s";
+
+document.getElementById("hearts").appendChild(h);
+
+}
+
+/* flowers */
+
+for(let i=0;i<40;i++){
+
+let f=document.createElement("div");
+
+f.className="flower";
+f.innerHTML="🌸";
+
+f.style.left=Math.random()*100+"%";
+f.style.top=Math.random()*100+"%";
+f.style.fontSize=(18+Math.random()*22)+"px";
+f.style.animationDuration=(6+Math.random()*5)+"s";
+f.style.animationDelay=(-Math.random()*10)+"s";
+
+document.getElementById("flowers").appendChild(f);
+
+}
+
+/* pages */
+
+let pages=document.querySelectorAll(".page");
+let current=0;
+
+function nextPage(){
+
+pages[current].classList.remove("active");
+current++;
+
+if(current<pages.length){
+pages[current].classList.add("active");
+}
+
+}
+
+/* popup */
+
+function showPopup(){
+
+document.getElementById("popup").classList.add("show");
+
+setTimeout(heartBlast,500);
+
+}
+
+/* slow heart blast */
+
+function heartBlast(){
+
+for(let i=0;i<70;i++){
+
+let heart=document.createElement("div");
+heart.className="blastHeart";
+heart.innerHTML="❤️";
+
+let x=(Math.random()-0.5)*800+"px";
+let y=(Math.random()-0.5)*800+"px";
+
+heart.style.left="50%";
+heart.style.top="50%";
+
+heart.style.setProperty("--x",x);
+heart.style.setProperty("--y",y);
+
+document.getElementById("blast").appendChild(heart);
+
+setTimeout(()=>heart.remove(),3800);
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
